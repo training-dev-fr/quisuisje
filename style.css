@@ -1,0 +1,93 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    overflow: hidden;
+  }
+  
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+  }
+  
+  .character-display {
+    /* Texte géant et effet de perspective pour que ce soit illisible en biais */
+    font-size: 120px;
+    font-weight: 900;
+    color: #ffffff;
+    text-align: center;
+    letter-spacing: 8px;
+    line-height: 1.2;
+    text-transform: uppercase;
+    text-shadow: 0 10px 40px rgba(0, 255, 150, 0.3), 0 0 60px rgba(0, 255, 100, 0.2);
+  
+    /* Effet perspective : illisible en biais ou d'en haut */
+    transform: perspective(800px) rotateX(25deg) rotateZ(0deg);
+    transform-style: preserve-3d;
+  
+    /* Animation d'apparition */
+    animation: fadeIn 0.5s ease-in-out;
+  
+    max-width: 90vw;
+    word-wrap: break-word;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: perspective(800px) rotateX(45deg) rotateZ(0deg);
+    }
+    to {
+      opacity: 1;
+      transform: perspective(800px) rotateX(25deg) rotateZ(0deg);
+    }
+  }
+  
+  .instruction {
+    margin-top: 80px;
+    color: #888888;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+  }
+  
+  .instruction:hover {
+    opacity: 1;
+  }
+  
+  /* Mode sombre pour une meilleure lisibilité */
+  @media (prefers-color-scheme: dark) {
+    body {
+      background: #000000;
+    }
+  }
+  
+  /* Responsive pour très petit écran */
+  @media (max-width: 600px) {
+    .character-display {
+      font-size: 60px;
+      letter-spacing: 4px;
+    }
+  
+    .instruction {
+      margin-top: 40px;
+    }
+  }
+  
